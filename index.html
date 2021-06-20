@@ -3,168 +3,328 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <!-- ... -->
+  <link href="//unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-  <!-- This example requires Tailwind CSS v2.0+ -->
-<nav class="bg-gray-800">
-  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-    <div class="relative flex items-center justify-between h-16">
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Mobile menu button-->
-        <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <!--
-            Icon when menu is closed.
+<div class="py-2 bg-gray-100">
+    <div class="w-full max-w-6xl px-4 mx-auto sm:px-6 md:px-8">
 
-            Heroicon name: outline/menu
+        <!-- Desktop navbar -->
+        <header
+            class="sticky top-0 z-10 w-full bg-white shadow bg-opacity-80 backdrop-filter backdrop-blur-xl backdrop-saturate-150 rounded-2xl"
+            x-data="{ open: false }">
+            <nav class="flex items-center justify-between px-4 h-14">
+                <a class="text-lg font-semibold tracking-tight"
+                    href="#">
+                    Analytics
+                </a>
 
-            Menu open: "hidden", Menu closed: "block"
-          -->
-          <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <!--
-            Icon when menu is open.
+                <ul class="items-center hidden space-x-6 text-sm font-medium text-gray-600 md:flex">
+                    <li>
+                        <a class="py-2 transition rounded-lg hover:text-gray-500 focus:text-gray-800 focus:outline-none"
+                            href="#">Dashboard</a>
+                    </li>
 
-            Heroicon name: outline/x
+                    <li>
+                        <a class="px-3 py-2 text-blue-600 transition rounded-lg bg-blue-50 hover:bg-gray-50 focus:outline-none"
+                            href="#">
+                            Sites
+                        </a>
+                    </li>
 
-            Menu open: "block", Menu closed: "hidden"
-          -->
-          <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-          <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
+                    <li>
+                        <a class="py-2 transition rounded-lg hover:text-gray-500 focus:text-gray-800 focus:outline-none"
+                            href="#">Teams</a>
+                    </li>
+
+                    <li>
+                        <a class="block transition rounded-full focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                            href="#">
+                            <div class="relative w-8 h-8">
+                                <div class="absolute inset-0 bg-gray-200 rounded-full animate-pulse"></div>
+
+                                <img class="absolute inset-0 object-cover rounded-full"
+                                    src="https://thispersondoesnotexist.com/image"
+                                    alt="">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Hamburger -->
+                <div class="md:hidden">
+                    <button
+                        class="flex items-center justify-center w-10 h-10 -mr-2 text-blue-500 transition rounded-full hover:bg-gray-50 focus:bg-blue-50 focus:outline-none"
+                        x-on:click="open = !open"
+                        type="button">
+                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 5.75H19.25"/>
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 18.25H19.25"/>
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.75 12H19.25"/>
+</svg>                    </button>
+                </div>
+            </nav>
+
+            <!-- Mobile menu -->
+            <nav class="px-2 md:hidden"
+                x-show="open"
+                x-cloak>
+                <div class="border-t"></div>
+
+                <ul class="flex flex-col py-2 space-y-1 text-sm font-medium text-gray-600">
+                    <li>
+                        <a class="block p-2 transition rounded-lg hover:bg-gray-50 focus:text-gray-800 focus:bg-gray-100 focus:outline-none"
+                            href="#">Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a class="block p-2 text-blue-600 transition rounded-lg bg-blue-50 focus:outline-none"
+                            href="#">
+                            Sites
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="block p-2 transition rounded-lg hover:bg-gray-50 focus:text-gray-800 focus:bg-gray-100 focus:outline-none"
+                            href="#">Teams</a>
+                    </li>
+
+                    <li>
+                        <a class="block p-2 transition rounded-lg hover:bg-gray-50 focus:text-gray-800 focus:bg-gray-100 focus:outline-none"
+                            href="#">Settings</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="grid gap-2 my-12 md:gap-6 md:grid-cols-2">
+            <aside class="space-y-2">
+                <h1 class="text-2xl font-semibold tracking-tight md:text-3xl">Personal Site</h1>
+
+                <a class="inline-flex items-center space-x-1 font-medium"
+                    href="#">
+                    <svg class="text-green-500 w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.75 11.75C5.75 11.1977 6.19772 10.75 6.75 10.75H17.25C17.8023 10.75 18.25 11.1977 18.25 11.75V17.25C18.25 18.3546 17.3546 19.25 16.25 19.25H7.75C6.64543 19.25 5.75 18.3546 5.75 17.25V11.75Z"/>
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.75 10.5V10.3427C7.75 8.78147 7.65607 7.04125 8.74646 5.9239C9.36829 5.2867 10.3745 4.75 12 4.75C13.6255 4.75 14.6317 5.2867 15.2535 5.9239C16.3439 7.04125 16.25 8.78147 16.25 10.3427V10.5"/>
+</svg>
+                    <span>mulai.dev</span>
+                </a>
+            </aside>
+
+            <aside class="space-y-2 md:justify-self-end">
+                <div>
+                    <label class="sr-only"
+                        for="date_range">Show statistics for</label>
+
+                    <div class="relative group">
+                        <select
+                            class="block w-full text-sm font-medium leading-4 transition duration-75 border-white rounded-lg shadow h-9 pr-9 focus:border-blue-600 focus:ring-1 focus:ring-inset focus:ring-blue-600 bg-none"
+                            id="date_range">
+                            <option value="week">Last week</option>
+                            <option value="month">Last month</option>
+                            <option value="year">Last year</option>
+                        </select>
+
+                        <span
+                            class="absolute inset-y-0 right-0 flex items-center justify-center text-gray-400 transition pointer-events-none w-9 h-9 group-focus-within:text-blue-500">
+                            <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.25 10.75L12 14.25L8.75 10.75"/>
+</svg>                        </span>
+                    </div>
+                </div>
+            </aside>
         </div>
-        <div class="hidden sm:block sm:ml-6">
-          <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
 
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+        <section class="grid gap-6 my-6 md:grid-cols-3">
+            <div class="p-6 bg-white shadow rounded-2xl">
+                <dl class="space-y-2">
+                    <dt class="text-sm font-medium text-gray-500">Unique views</dt>
 
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                    <dd class="text-5xl font-light md:text-6xl">192.1k</dd>
 
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
-          </div>
-        </div>
-      </div>
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-          <span class="sr-only">View notifications</span>
-          <!-- Heroicon name: outline/bell -->
-          <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-          </svg>
-        </button>
+                    <dd class="flex items-center space-x-1 text-sm font-medium text-green-500">
+                        <span>32k increase</span>
 
-        <!-- Profile dropdown -->
-        <div class="ml-3 relative">
-          <div>
-            <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-              <span class="sr-only">Open user menu</span>
-              <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            </button>
-          </div>
+                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 15.25V6.75H8.75"/>
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 7L6.75 17.25"/>
+</svg>                    </dd>
+                </dl>
+            </div>
 
-          <!--
-            Dropdown menu, show/hide based on menu state.
+            <div class="p-6 bg-white shadow rounded-2xl">
+                <dl class="space-y-2">
+                    <dt class="text-sm font-medium text-gray-500">Bounce rate</dt>
 
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-            <!-- Active: "bg-gray-100", Not Active: "" -->
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                    <dd class="text-5xl font-light md:text-6xl">21%</dd>
 
-  <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu">
-    <div class="px-2 pt-2 pb-3 space-y-1">
-      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
+                    <dd class="flex items-center space-x-1 text-sm font-medium text-red-500">
+                        <span>7% increase</span>
 
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 8.75V17.25H8.75"/>
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 17L6.75 6.75"/>
+</svg>                    </dd>
+                </dl>
+            </div>
 
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+            <div class="p-6 bg-white shadow rounded-2xl">
+                <dl class="space-y-2">
+                    <dt class="text-sm font-medium text-gray-500">Average time on page</dt>
 
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-    </div>
-  </div>
-</nav>
+                    <dd class="text-5xl font-light md:text-6xl">03:12</dd>
 
-<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-    <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-light-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
-    <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-      <div class="max-w-md mx-auto">
-        <div class="text-purple-600">
-          Mulaidev
-        </div>
-        <div class="divide-y divide-gray-200">
-          <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-            <p><img src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"></p>
-            <ul class="list-disc space-y-2">
-              <li class="flex items-start">
-                <span class="h-6 flex items-center sm:h-7">
-                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-                <p class="ml-2">
-                  Customizing your
-                  <code class="text-sm font-bold text-gray-900">tailwind.config.js</code> file
-                </p>
-              </li>
-              <li class="flex items-start">
-                <span class="h-6 flex items-center sm:h-7">
-                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-                <p class="ml-2">
-                  Extracting classes with
-                  <code class="text-sm font-bold text-gray-900">@apply</code>
-                </p>
-              </li>
-              <li class="flex items-start">
-                <span class="h-6 flex items-center sm:h-7">
-                  <svg class="flex-shrink-0 h-5 w-5 text-cyan-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-                <p class="ml-2">Code completion with instant preview</p>
-              </li>
+                    <dd class="flex items-center space-x-1 text-sm font-medium text-green-500">
+                        <span>3% increase</span>
+
+                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 15.25V6.75H8.75"/>
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 7L6.75 17.25"/>
+</svg>                    </dd>
+                </dl>
+            </div>
+        </section>
+
+        <section class="grid gap-6 my-6 md:grid-cols-2">
+            <div class="p-2 space-y-2 bg-white shadow rounded-xl">
+                <header class="px-4 py-2">
+                    <h2 class="text-xl font-semibold tracking-tight">Visits per page</h2>
+                </header>
+
+                <div class="border-t"></div>
+
+                <div class="p-4">
+                    <dl class="-my-2 space-y-1">
+                        <div class="grid grid-cols-[2fr,1fr,1fr] gap-4 text-sm font-medium text-gray-500 pb-2">
+                            <dt>Content</dt>
+
+                            <dt class="text-right">Views</dt>
+
+                            <dt class="text-right">Unique</dt>
+                        </div>
+
+                        <div class="relative py-2 -mx-2">
+                            <div class="absolute inset-0 w-4/5 h-full rounded-lg bg-blue-50"></div>
+
+                            <div class="grid grid-cols-[2fr,1fr,1fr] gap-4 text-sm font-medium px-2 relative">
+                                <dd>/</dd>
+
+                                <dd class="text-right">963</dd>
+
+                                <dd class="text-right">567</dd>
+                            </div>
+                        </div>
+
+                        <div class="relative py-2 -mx-2">
+                            <div class="absolute inset-0 w-1/2 h-full rounded-lg bg-blue-50"></div>
+
+                            <div class="grid grid-cols-[2fr,1fr,1fr] gap-4 text-sm font-medium px-2 relative">
+                                <dd>/blog</dd>
+
+                                <dd class="text-right">414</dd>
+
+                                <dd class="text-right">124</dd>
+                            </div>
+                        </div>
+
+                        <div class="relative py-2 -mx-2">
+                            <div class="absolute inset-0 w-1/4 h-full rounded-lg bg-blue-50"></div>
+
+                            <div class="grid grid-cols-[2fr,1fr,1fr] gap-4 text-sm font-medium px-2 relative">
+                                <dd>/about-me</dd>
+
+                                <dd class="text-right">251</dd>
+
+                                <dd class="text-right">203</dd>
+                            </div>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="p-2 space-y-2 bg-white shadow rounded-xl">
+                <header class="px-4 py-2">
+                    <h2 class="text-xl font-semibold tracking-tight">Visits per country</h2>
+                </header>
+
+                <div class="border-t"></div>
+
+                <div class="p-4">
+                    <dl class="-my-2 space-y-1">
+                        <div class="grid grid-cols-[2fr,1fr,1fr] gap-4 text-sm font-medium text-gray-500 pb-2">
+                            <dt>Country</dt>
+
+                            <dt class="text-right">Views</dt>
+
+                            <dt class="text-right">Unique</dt>
+                        </div>
+
+                        <div class="relative py-2 -mx-2">
+                            <div class="absolute inset-0 w-2/3 h-full rounded-lg bg-blue-50"></div>
+
+                            <div class="grid grid-cols-[2fr,1fr,1fr] gap-4 text-sm font-medium px-2 relative">
+                                <dd>Netherlands</dd>
+
+                                <dd class="text-right">71k</dd>
+
+                                <dd class="text-right">40k</dd>
+                            </div>
+                        </div>
+
+                        <div class="relative py-2 -mx-2">
+                            <div class="absolute inset-0 w-1/2 h-full rounded-lg bg-blue-50"></div>
+
+                            <div class="grid grid-cols-[2fr,1fr,1fr] gap-4 text-sm font-medium px-2 relative">
+                                <dd>United States</dd>
+
+                                <dd class="text-right">41k</dd>
+
+                                <dd class="text-right">32k</dd>
+                            </div>
+                        </div>
+
+                        <div class="relative py-2 -mx-2">
+                            <div class="absolute inset-0 w-1/6 h-full rounded-lg bg-blue-50"></div>
+
+                            <div class="grid grid-cols-[2fr,1fr,1fr] gap-4 text-sm font-medium px-2 relative">
+                                <dd>Germany</dd>
+
+                                <dd class="text-right">36k</dd>
+
+                                <dd class="text-right">27k</dd>
+                            </div>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <footer class="my-6">
+            <ul class="flex flex-wrap items-center justify-center gap-6 text-sm text-center text-gray-500">
+                <li>
+                    <a class="transition hover:text-gray-800 focus:underline focus:outline-none"
+                        href="#">Careers</a>
+                </li>
+
+                <li>
+                    <a class="transition hover:text-gray-800 focus:underline focus:outline-none"
+                        href="#">Privacy</a>
+                </li>
+
+                <li>
+                    <a class="transition hover:text-gray-800 focus:underline focus:outline-none"
+                        href="#">Terms of service</a>
+                </li>
+
+                <li>
+                    <a class="transition hover:text-gray-800 focus:underline focus:outline-none"
+                        href="#">Support</a>
+                </li>
             </ul>
-            <p>Perfect for learning how the framework works, prototyping a new idea, or creating a demo to share online.</p>
-          </div>
-          <div class="pt-6 text-base leading-6 font-bold sm:text-lg sm:leading-7">
-            <p>Want to dig deeper into Tailwind?</p>
-            <p>
-              <a href="https://tailwindcss.com/docs" class="text-cyan-600 hover:text-cyan-700"> Read the docs &rarr; </a>
-            </p>
-          </div>
-        </div>
-      </div>
+        </footer>
     </div>
-  </div>
 </div>
 
+<script src="//unpkg.com/alpinejs" defer></script>
 </body>
 </html>
